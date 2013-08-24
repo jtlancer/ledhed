@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -737,40 +737,64 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="IC2" library="SparkFun-DigitalIC" deviceset="74*595" device=""/>
 <part name="IC3" library="SparkFun-DigitalIC" deviceset="74*595" device=""/>
 <part name="IC4" library="SparkFun-DigitalIC" deviceset="74*595" device=""/>
-<part name="LED1" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED2" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED3" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED4" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED5" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED6" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED7" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED8" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED9" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED10" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED11" library="SparkFun-LED" deviceset="LED" device="1206"/>
-<part name="LED12" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED8H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED7H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED6H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED2H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED3H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED5H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED9H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED12H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED1H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED11H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED4H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED10H" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED11M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED10M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED9M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED8M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED7M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED6M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED5M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED4M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED12M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED2M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED1M" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="LED3M" library="SparkFun-LED" deviceset="LED" device="1206"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="IC1" gate="A" x="45.72" y="236.22"/>
-<instance part="IC2" gate="A" x="45.72" y="200.66"/>
-<instance part="IC3" gate="A" x="45.72" y="165.1"/>
-<instance part="IC4" gate="A" x="45.72" y="129.54"/>
-<instance part="LED1" gate="G$1" x="86.36" y="198.12"/>
-<instance part="LED2" gate="G$1" x="83.82" y="185.42" rot="R90"/>
-<instance part="LED3" gate="G$1" x="83.82" y="177.8" rot="R90"/>
-<instance part="LED4" gate="G$1" x="83.82" y="170.18" rot="R90"/>
-<instance part="LED5" gate="G$1" x="83.82" y="162.56" rot="R90"/>
-<instance part="LED6" gate="G$1" x="83.82" y="154.94" rot="R90"/>
-<instance part="LED7" gate="G$1" x="83.82" y="147.32" rot="R90"/>
-<instance part="LED8" gate="G$1" x="86.36" y="139.7" rot="R90"/>
-<instance part="LED9" gate="G$1" x="86.36" y="132.08" rot="R90"/>
-<instance part="LED10" gate="G$1" x="86.36" y="121.92" rot="R90"/>
-<instance part="LED11" gate="G$1" x="86.36" y="111.76" rot="R90"/>
-<instance part="LED12" gate="G$1" x="86.36" y="101.6" rot="R90"/>
+<instance part="IC1" gate="A" x="44.45" y="222.25"/>
+<instance part="IC2" gate="A" x="44.45" y="187.96"/>
+<instance part="IC3" gate="A" x="11.43" y="219.71" rot="R180"/>
+<instance part="IC4" gate="A" x="12.7" y="185.42" rot="R180"/>
+<instance part="LED8H" gate="G$1" x="80.01" y="182.88" rot="R90"/>
+<instance part="LED7H" gate="G$1" x="80.01" y="190.5" rot="R90"/>
+<instance part="LED6H" gate="G$1" x="80.01" y="198.12" rot="R90"/>
+<instance part="LED2H" gate="G$1" x="80.01" y="228.6" rot="R90"/>
+<instance part="LED3H" gate="G$1" x="80.01" y="220.98" rot="R90"/>
+<instance part="LED5H" gate="G$1" x="80.01" y="205.74" rot="R90"/>
+<instance part="LED9H" gate="G$1" x="80.01" y="175.26" rot="R90"/>
+<instance part="LED12H" gate="G$1" x="80.01" y="243.84" rot="R90"/>
+<instance part="LED1H" gate="G$1" x="80.01" y="236.22" rot="R90"/>
+<instance part="LED11H" gate="G$1" x="80.01" y="160.02" rot="R90"/>
+<instance part="LED4H" gate="G$1" x="80.01" y="213.36" rot="R90"/>
+<instance part="LED10H" gate="G$1" x="80.01" y="167.64" rot="R90"/>
+<instance part="LED11M" gate="G$1" x="-22.86" y="161.29" rot="R270"/>
+<instance part="LED10M" gate="G$1" x="-22.86" y="168.91" rot="R270"/>
+<instance part="LED9M" gate="G$1" x="-22.86" y="176.53" rot="R270"/>
+<instance part="LED8M" gate="G$1" x="-22.86" y="184.15" rot="R270"/>
+<instance part="LED7M" gate="G$1" x="-22.86" y="191.77" rot="R270"/>
+<instance part="LED6M" gate="G$1" x="-22.86" y="199.39" rot="R270"/>
+<instance part="LED5M" gate="G$1" x="-22.86" y="207.01" rot="R270"/>
+<instance part="LED4M" gate="G$1" x="-22.86" y="214.63" rot="R270"/>
+<instance part="LED12M" gate="G$1" x="-22.86" y="245.11" rot="R270"/>
+<instance part="LED2M" gate="G$1" x="-22.86" y="229.87" rot="R270"/>
+<instance part="LED1M" gate="G$1" x="-22.86" y="237.49" rot="R270"/>
+<instance part="LED3M" gate="G$1" x="-22.86" y="222.25" rot="R270"/>
 </instances>
 <busses>
 </busses>
