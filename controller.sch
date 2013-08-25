@@ -855,6 +855,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="U$29" library="jt_parts" deviceset="RESISTOR" device=""/>
 <part name="U$22" library="jt_parts" deviceset="RESISTOR" device=""/>
 <part name="U$23" library="jt_parts" deviceset="RESISTOR" device=""/>
+<part name="MODE_AL1" library="SparkFun-LED" deviceset="LED" device="1206"/>
+<part name="MODE_AL2" library="SparkFun-LED" deviceset="LED" device="1206"/>
 </parts>
 <sheets>
 <sheet>
@@ -917,6 +919,8 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="U$29" gate="G$1" x="69.85" y="158.75"/>
 <instance part="U$22" gate="G$1" x="69.85" y="171.45"/>
 <instance part="U$23" gate="G$1" x="69.85" y="168.91"/>
+<instance part="MODE_AL1" gate="G$1" x="-52.07" y="212.09" rot="R90"/>
+<instance part="MODE_AL2" gate="G$1" x="-54.61" y="203.2" rot="R90"/>
 </instances>
 <busses>
 </busses>
