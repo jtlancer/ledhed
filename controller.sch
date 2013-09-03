@@ -4163,6 +4163,47 @@ High-power, low thermal resistance package.</description>
 </package>
 </packages>
 <symbols>
+<symbol name="MOSFET-PCHANNEL">
+<wire x1="-3.6576" y1="2.413" x2="-3.6576" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="1.905" x2="-2.0066" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="-2.032" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="1.905" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
+<wire x1="0" y1="-1.905" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-1.905" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-0.762" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-0.762" x2="3.175" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="3.175" y1="0.635" x2="1.905" y2="0.635" width="0.1524" layer="94"/>
+<wire x1="1.905" y1="0.635" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
+<wire x1="3.175" y1="-0.762" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-0.762" x2="1.905" y2="-0.762" width="0.1524" layer="94"/>
+<wire x1="1.905" y1="-0.762" x2="1.651" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="3.175" y1="-0.762" x2="3.429" y2="-0.508" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="0.508" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="0.508" x2="-1.27" y2="-0.508" width="0.1524" layer="94"/>
+<wire x1="-1.27" y1="-0.508" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.143" y1="0" x2="-2.032" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.143" y1="-0.254" x2="-0.254" y2="0" width="0.3048" layer="94"/>
+<wire x1="-0.254" y1="0" x2="-1.143" y2="0.254" width="0.3048" layer="94"/>
+<wire x1="-1.143" y1="0.254" x2="-1.143" y2="0" width="0.3048" layer="94"/>
+<wire x1="-1.143" y1="0" x2="-0.889" y2="0" width="0.3048" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-5.08" y2="0" width="0.1524" layer="94"/>
+<circle x="0" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
+<circle x="0" y="1.905" radius="0.127" width="0.4064" layer="94"/>
+<text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-1.27" y="2.54" size="0.8128" layer="93">D</text>
+<text x="-1.27" y="-3.556" size="0.8128" layer="93">S</text>
+<text x="-5.08" y="-1.27" size="0.8128" layer="93">G</text>
+<rectangle x1="-2.794" y1="-2.54" x2="-2.032" y2="-1.27" layer="94"/>
+<rectangle x1="-2.794" y1="1.27" x2="-2.032" y2="2.54" layer="94"/>
+<rectangle x1="-2.794" y1="-0.889" x2="-2.032" y2="0.889" layer="94"/>
+<pin name="G" x="-7.62" y="0" visible="off" length="short" direction="pas"/>
+<pin name="D" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
 <symbol name="MOSFET-NCHANNEL-1">
 <circle x="0" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
 <circle x="0" y="1.905" radius="0.127" width="0.4064" layer="94"/>
@@ -4242,6 +4283,34 @@ High-power, low thermal resistance package.</description>
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="MOSFET-PCHANNEL" prefix="Q">
+<description>Generic PMOSFET</description>
+<gates>
+<gate name="G$1" symbol="MOSFET-PCHANNEL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="SMD" package="SOT23-3">
+<connects>
+<connect gate="G$1" pin="D" pad="3"/>
+<connect gate="G$1" pin="G" pad="1"/>
+<connect gate="G$1" pin="S" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="DPAK">
+<connects>
+<connect gate="G$1" pin="D" pad="4"/>
+<connect gate="G$1" pin="G" pad="1"/>
+<connect gate="G$1" pin="S" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 <deviceset name="MOSFET-NCHANNEL" prefix="Q">
 <description>&lt;B&gt;Common NMOSFET Parts&lt;/b&gt;&lt;p&gt;
 &lt;table border = "1"&gt;
@@ -5730,7 +5799,7 @@ QFN is non-stock</description>
 <part name="C4" library="adafruit" deviceset="C-US" device="C0805"/>
 <part name="GND5" library="SparkFun-Aesthetics" deviceset="GND2" device=""/>
 <part name="GND6" library="SparkFun-Aesthetics" deviceset="GND2" device=""/>
-<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="FDD8780"/>
+<part name="Q2" library="SparkFun-DiscreteSemi" deviceset="MOSFET-PCHANNEL" device=""/>
 <part name="U$4" library="jt_parts" deviceset="RESISTOR" device="" value="10k"/>
 <part name="U$6" library="jt_parts" deviceset="RESISTOR" device=""/>
 <part name="C5" library="adafruit" deviceset="C-US" device="C0805"/>
@@ -5738,16 +5807,15 @@ QFN is non-stock</description>
 <part name="U$7" library="jt_parts" deviceset="RESISTOR" device=""/>
 <part name="BAT1" library="SparkFun-Electromechanical" deviceset="BATTERY" device="12PTH"/>
 <part name="U1" library="SparkFun-DigitalIC" deviceset="ATMEGA328_SMT" device="" value="ATMEGA328P"/>
-<part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
-<part name="S3" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
 <part name="S4" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
 <part name="S5" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
 <part name="JP2" library="SparkFun-Connectors" deviceset="M06" device="SIP"/>
+<part name="S2" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
+<part name="S3" library="SparkFun-Electromechanical" deviceset="SWITCH-MOMENTARY-2" device="SIDE_EZ"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="274.32" y="124.46" size="1.778" layer="91">Replace with P-Channel</text>
 </plain>
 <instances>
 <instance part="JP1" gate="G$1" x="91.44" y="20.32"/>
@@ -5801,8 +5869,8 @@ QFN is non-stock</description>
 <instance part="C4" gate="G$1" x="326.39" y="152.4"/>
 <instance part="GND5" gate="G$1" x="337.82" y="162.56" smashed="yes" rot="R180"/>
 <instance part="GND6" gate="G$1" x="360.68" y="168.91" smashed="yes" rot="R180"/>
-<instance part="Q2" gate="G$1" x="328.93" y="116.84" smashed="yes" rot="R90">
-<attribute name="NAME" x="327.66" y="120.65" size="1.778" layer="95"/>
+<instance part="Q2" gate="G$1" x="328.93" y="116.84" smashed="yes" rot="MR90">
+<attribute name="NAME" x="330.2" y="120.65" size="1.778" layer="95" rot="MR0"/>
 </instance>
 <instance part="U$4" gate="G$1" x="350.52" y="86.36" smashed="yes" rot="R270">
 <attribute name="VALUE" x="347.218" y="90.17" size="1.778" layer="96" rot="R270"/>
@@ -5820,12 +5888,6 @@ QFN is non-stock</description>
 </instance>
 <instance part="BAT1" gate="G$1" x="111.76" y="177.8"/>
 <instance part="U1" gate="G$1" x="170.18" y="110.49"/>
-<instance part="S2" gate="G$1" x="85.09" y="99.06" smashed="yes">
-<attribute name="NAME" x="69.85" y="93.98" size="1.778" layer="95" rot="R90"/>
-</instance>
-<instance part="S3" gate="G$1" x="85.09" y="110.49" smashed="yes">
-<attribute name="NAME" x="86.36" y="113.03" size="1.778" layer="95" rot="R90"/>
-</instance>
 <instance part="S4" gate="G$1" x="86.36" y="137.16" smashed="yes">
 <attribute name="NAME" x="87.63" y="134.62" size="1.778" layer="95" rot="R90"/>
 </instance>
@@ -5833,6 +5895,12 @@ QFN is non-stock</description>
 <attribute name="NAME" x="87.63" y="121.92" size="1.778" layer="95" rot="R90"/>
 </instance>
 <instance part="JP2" gate="G$1" x="160.02" y="186.69"/>
+<instance part="S2" gate="G$1" x="86.36" y="149.86" smashed="yes">
+<attribute name="NAME" x="87.63" y="147.32" size="1.778" layer="95" rot="R90"/>
+</instance>
+<instance part="S3" gate="G$1" x="86.36" y="160.02" smashed="yes">
+<attribute name="NAME" x="87.63" y="157.48" size="1.778" layer="95" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -5938,7 +6006,7 @@ QFN is non-stock</description>
 <label x="97.79" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$4" class="1">
+<net name="12V-RETURN" class="1">
 <segment>
 <pinref part="J2" gate="G$1" pin="GND"/>
 <wire x1="325.12" y1="135.89" x2="337.82" y2="135.89" width="0.1524" layer="91"/>
@@ -5983,7 +6051,6 @@ QFN is non-stock</description>
 </net>
 <net name="N$10" class="0">
 <segment>
-<wire x1="328.93" y1="109.22" x2="328.93" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="328.93" y1="104.14" x2="320.04" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="2"/>
 <pinref part="S1" gate="G$1" pin="1"/>
@@ -5991,9 +6058,10 @@ QFN is non-stock</description>
 <wire x1="328.93" y1="97.79" x2="328.93" y2="95.25" width="0.1524" layer="91"/>
 <wire x1="337.82" y1="97.79" x2="328.93" y2="97.79" width="0.1524" layer="91"/>
 <wire x1="328.93" y1="104.14" x2="328.93" y2="97.79" width="0.1524" layer="91"/>
-<junction x="328.93" y="104.14"/>
 <junction x="328.93" y="97.79"/>
 <pinref part="Q2" gate="G$1" pin="G"/>
+<wire x1="328.93" y1="104.14" x2="328.93" y2="109.22" width="0.1524" layer="91"/>
+<junction x="328.93" y="104.14"/>
 </segment>
 </net>
 <net name="PWR-CNTRL" class="0">
@@ -6030,30 +6098,24 @@ QFN is non-stock</description>
 <segment>
 <pinref part="J2" gate="G$1" pin="PWR"/>
 <wire x1="325.12" y1="130.81" x2="337.82" y2="130.81" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="IC1" gate="A1" pin="VI"/>
-<wire x1="334.01" y1="116.84" x2="337.82" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="337.82" y1="116.84" x2="342.9" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="337.82" y1="116.84" x2="337.82" y2="115.57" width="0.1524" layer="91"/>
 <junction x="337.82" y="116.84"/>
 <wire x1="337.82" y1="130.81" x2="337.82" y2="116.84" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<wire x1="308.61" y1="125.73" x2="328.93" y2="125.73" width="0.1524" layer="91"/>
-<wire x1="328.93" y1="125.73" x2="328.93" y2="123.19" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
+<wire x1="334.01" y1="116.84" x2="337.82" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="12V-IN" class="1">
 <segment>
 <pinref part="J1" gate="G$1" pin="PWR"/>
-<pinref part="Q2" gate="G$1" pin="D"/>
 <wire x1="311.15" y1="116.84" x2="320.04" y2="116.84" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="1"/>
-<wire x1="320.04" y1="116.84" x2="323.85" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="320.04" y1="114.3" x2="320.04" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<wire x1="323.85" y1="116.84" x2="320.04" y2="116.84" width="0.1524" layer="91"/>
 <junction x="320.04" y="116.84"/>
 </segment>
 </net>
