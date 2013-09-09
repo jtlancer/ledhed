@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -3050,6 +3050,16 @@ MMBT4403 - 40V 600mA SOT-23 (TRANS-09245)</description>
 <wire x1="0.36" y1="-5.795" x2="13.06" y2="-5.795" width="0.127" layer="21"/>
 <rectangle x1="2.1" y1="0.6" x2="11" y2="5.7" layer="39"/>
 </package>
+<package name="FUSE-LITTLE-251">
+<wire x1="-4.5" y1="-1.68" x2="-4.5" y2="1.62" width="0.2032" layer="21"/>
+<wire x1="-4.5" y1="1.62" x2="2.9" y2="1.62" width="0.2032" layer="21"/>
+<wire x1="2.9" y1="1.62" x2="2.9" y2="-1.68" width="0.2032" layer="21"/>
+<wire x1="2.9" y1="-1.68" x2="-4.5" y2="-1.68" width="0.2032" layer="21"/>
+<pad name="P$1" x="-6.35" y="-0.03" drill="0.9" diameter="1.8796"/>
+<pad name="P$2" x="4.75" y="-0.03" drill="0.9" diameter="1.8796"/>
+<text x="-4.445" y="2.51" size="0.8128" layer="25" font="vector" ratio="15">&gt;Name</text>
+<text x="-3.429" y="-0.411" size="0.8128" layer="21" font="vector" ratio="15">&gt;Value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -3090,6 +3100,14 @@ MMBT4403 - 40V 600mA SOT-23 (TRANS-09245)</description>
 <pin name="2" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
 <pin name="1" x="2.54" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
 <pin name="3" x="2.54" y="2.54" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+<symbol name="FUSE">
+<wire x1="0" y1="0" x2="-2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94" curve="-180"/>
+<text x="-10.16" y="2.54" size="1.27" layer="95">&gt;Name</text>
+<text x="5.08" y="2.54" size="1.27" layer="96">&gt;Value</text>
+<pin name="1" x="-5.08" y="0" length="short"/>
+<pin name="2" x="5.08" y="0" length="short" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -3137,6 +3155,22 @@ MMBT4403 - 40V 600mA SOT-23 (TRANS-09245)</description>
 <connect gate="G$1" pin="1" pad="P$3"/>
 <connect gate="G$1" pin="2" pad="P$4"/>
 <connect gate="G$1" pin="3" pad="P$5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FUSE">
+<gates>
+<gate name="G$1" symbol="FUSE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="FUSE-LITTLE-251">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -5609,11 +5643,11 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND18" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$13" library="jt_parts" deviceset="SWITCH-SPDT" device=""/>
+<part name="U$15" library="jt_parts" deviceset="FUSE" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="144.78" y="160.02" size="6.4516" layer="91">MAKE FOOTPRINT</text>
 </plain>
 <instances>
 <instance part="JP1" gate="G$1" x="25.4" y="271.78"/>
@@ -5769,6 +5803,7 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 </instance>
 <instance part="GND18" gate="1" x="148.59" y="215.9" rot="R90"/>
 <instance part="U$13" gate="G$1" x="180.34" y="152.4"/>
+<instance part="U$15" gate="G$1" x="170.18" y="165.1"/>
 </instances>
 <busses>
 </busses>
