@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="mil" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -5644,6 +5644,8 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <part name="GND18" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$13" library="jt_parts" deviceset="SWITCH-SPDT" device=""/>
 <part name="U$15" library="jt_parts" deviceset="FUSE" device=""/>
+<part name="U$16" library="jt_parts" deviceset="RESISTOR" device=""/>
+<part name="GND19" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5804,6 +5806,10 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <instance part="GND18" gate="1" x="148.59" y="215.9" rot="R90"/>
 <instance part="U$13" gate="G$1" x="180.34" y="152.4"/>
 <instance part="U$15" gate="G$1" x="170.18" y="165.1"/>
+<instance part="U$16" gate="G$1" x="241.3" y="215.9" smashed="yes" rot="R270">
+<attribute name="VALUE" x="237.998" y="219.71" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND19" gate="1" x="241.3" y="226.06" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -5946,6 +5952,11 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <wire x1="170.18" y1="147.32" x2="170.18" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="12V_IN" gate="G$1" pin="1"/>
 <wire x1="170.18" y1="149.86" x2="167.64" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND19" gate="1" pin="GND"/>
+<pinref part="U$16" gate="G$1" pin="1"/>
+<wire x1="241.3" y1="223.52" x2="241.3" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RCK" class="0">
@@ -6132,8 +6143,12 @@ These are standard SMD and PTH capacitors. Normally 10uF, 47uF, and 100uF in ele
 <net name="PWM" class="0">
 <segment>
 <pinref part="U$6" gate="G$1" pin="1"/>
-<wire x1="236.22" y1="208.28" x2="242.57" y2="208.28" width="0.1524" layer="91"/>
-<label x="237.49" y="208.28" size="1.778" layer="95"/>
+<wire x1="236.22" y1="208.28" x2="241.3" y2="208.28" width="0.1524" layer="91"/>
+<label x="245.11" y="208.28" size="1.778" layer="95"/>
+<pinref part="U$16" gate="G$1" pin="2"/>
+<wire x1="241.3" y1="208.28" x2="252.73" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="210.82" x2="241.3" y2="208.28" width="0.1524" layer="91"/>
+<junction x="241.3" y="208.28"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PD5(T1)"/>
