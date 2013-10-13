@@ -8,7 +8,7 @@
 </settings>
 <grid distance="0.05" unitdist="inch" unit="mil" style="dots" multiple="1" display="yes" altdistance="10" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
@@ -127,7 +127,7 @@
 <wire x1="100" y1="0" x2="100" y2="100" width="0" layer="20"/>
 <wire x1="100" y1="100" x2="0" y2="100" width="0" layer="20"/>
 <wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
-<text x="60.96" y="69.85" size="1.778" layer="17">ledbed v1</text>
+<text x="66.04" y="48.26" size="1.9304" layer="1" rot="MR90">ledbed v1</text>
 </plain>
 <libraries>
 <library name="dp_pcb">
@@ -1171,10 +1171,12 @@ Please make sure your boards conform to these design rules.</description>
 <polygon width="0.2032" layer="16" isolate="0.254" rank="2">
 <vertex x="16.51" y="74.295"/>
 <vertex x="16.51" y="37.465"/>
-<vertex x="70.866" y="37.338"/>
-<vertex x="70.866" y="37.592"/>
-<vertex x="70.739" y="51.435"/>
-<vertex x="82.55" y="51.435"/>
+<vertex x="68.29893125" y="37.343996875" curve="90.662001"/>
+<vertex x="70.844759375" y="39.90730625"/>
+<vertex x="70.762515625" y="48.871796875" curve="-90.525665"/>
+<vertex x="73.302409375" y="51.435"/>
+<vertex x="80.01" y="51.435" curve="90"/>
+<vertex x="82.55" y="53.975"/>
 <vertex x="82.55" y="73.66"/>
 <vertex x="81.915" y="74.295"/>
 </polygon>
