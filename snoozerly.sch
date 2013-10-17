@@ -5599,6 +5599,8 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <sheets>
 <sheet>
 <plain>
+<text x="187.325" y="116.205" size="1.778" layer="91">jt lancer</text>
+<text x="244.475" y="116.205" size="1.778" layer="91">0.1</text>
 </plain>
 <instances>
 <instance part="VREG" gate="A1" x="195.58" y="283.21"/>
