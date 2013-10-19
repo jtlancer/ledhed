@@ -7586,8 +7586,8 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="LED1" library="jt_parts" deviceset="LED" device="" value=""/>
 <part name="LED2" library="jt_parts" deviceset="LED" device="" value=""/>
 <part name="LED3" library="jt_parts" deviceset="LED" device="" value=""/>
-<part name="C5" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206-KIT" value="10uF"/>
-<part name="C7" library="SparkFun-Capacitors" deviceset="CAP_POL" device="1206-KIT" value="10uF"/>
+<part name="C5" library="SparkFun-Capacitors" deviceset="CAP_POL" device="C" value="10uF"/>
+<part name="C7" library="SparkFun-Capacitors" deviceset="CAP_POL" device="C" value="10uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -7645,18 +7645,30 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="GROUND" library="SparkFun-Connectors" deviceset="M01" device="PTH_LONGPAD"/>
 <part name="U$13" library="jt_parts" deviceset="M07" device=""/>
 <part name="U$23" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
-<part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
+<part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="VCC" device="">
+<attribute name="VCC" value="VCC"/>
+</part>
 <part name="U$6" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="U$21" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="U$22" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="U$24" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
+<part name="U$25" library="adafruit" deviceset="R-US_" device="R0603" value="zero"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="187.325" y="116.205" size="1.778" layer="91">jt lancer</text>
 <text x="244.475" y="116.205" size="1.778" layer="91">0.1</text>
+<text x="62.23" y="251.46" size="2.032" layer="91">Real Time Clock Section</text>
+<text x="55.88" y="200.66" size="2.032" layer="91">Touch Sensor Section</text>
+<text x="52.07" y="111.76" size="2.032" layer="91">Microcontroller Section</text>
+<text x="116.84" y="142.24" size="2.032" layer="91">MCU Interface Section</text>
+<text x="181.61" y="125.73" size="2.032" layer="91">12V/2A PWM Section</text>
+<text x="227.33" y="125.73" size="2.032" layer="91">Nighlight Section</text>
+<text x="223.52" y="193.04" size="2.032" layer="91" ratio="10">LCD Backlight Section</text>
+<text x="166.37" y="190.5" size="2.032" layer="91">Display Section</text>
+<text x="162.56" y="262.89" size="2.032" layer="91">Power Section</text>
 </plain>
 <instances>
 <instance part="VREG" gate="A1" x="195.58" y="283.21"/>
@@ -7685,7 +7697,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 </instance>
 <instance part="GND2" gate="1" x="142.24" y="267.97"/>
 <instance part="GND4" gate="1" x="195.58" y="267.97"/>
-<instance part="GND6" gate="1" x="191.77" y="143.51"/>
+<instance part="GND6" gate="1" x="191.77" y="132.08"/>
 <instance part="LEDSTRIP" gate="G$1" x="209.55" y="172.72" smashed="yes" rot="R180">
 <attribute name="NAME" x="212.09" y="166.878" size="1.778" layer="95" rot="R180"/>
 </instance>
@@ -7821,11 +7833,11 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <attribute name="NAME" x="123.19" y="280.162" size="1.778" layer="95"/>
 </instance>
 <instance part="U$13" gate="G$1" x="128.27" y="229.87" rot="R180"/>
-<instance part="U$23" gate="G$1" x="109.22" y="212.09" smashed="yes">
-<attribute name="VALUE" x="105.41" y="208.788" size="1.778" layer="96"/>
+<instance part="U$23" gate="G$1" x="100.33" y="205.74" smashed="yes" rot="R90">
+<attribute name="VALUE" x="103.632" y="201.93" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="SUPPLY6" gate="1" x="115.57" y="205.74" smashed="yes" rot="R180">
-<attribute name="VALUE" x="116.586" y="208.026" size="1.778" layer="96" rot="R270"/>
+<instance part="SUPPLY6" gate="1" x="100.33" y="198.12" smashed="yes" rot="R180">
+<attribute name="VCC" x="100.33" y="198.12" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U$6" gate="G$1" x="36.83" y="224.79" smashed="yes" rot="R90">
 <attribute name="VALUE" x="40.132" y="220.98" size="1.778" layer="96" rot="R90"/>
@@ -7841,6 +7853,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 </instance>
 <instance part="SUPPLY11" gate="1" x="45.72" y="203.2" smashed="yes" rot="R180">
 <attribute name="VALUE" x="46.736" y="205.486" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="U$25" gate="G$1" x="203.2" y="143.51" smashed="yes" rot="R90">
+<attribute name="VALUE" x="206.502" y="139.7" size="1.778" layer="96" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -7937,13 +7952,13 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S"/>
-<wire x1="191.77" y1="149.86" x2="191.77" y2="148.59" width="0.1524" layer="91"/>
-<wire x1="191.77" y1="148.59" x2="203.2" y2="148.59" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="203.2" y1="148.59" x2="203.2" y2="151.13" width="0.1524" layer="91"/>
+<wire x1="191.77" y1="149.86" x2="191.77" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="191.77" y1="148.59" x2="191.77" y2="146.05" width="0.1524" layer="91"/>
-<junction x="191.77" y="148.59"/>
+<pinref part="U$25" gate="G$1" pin="1"/>
+<wire x1="191.77" y1="137.16" x2="191.77" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="138.43" x2="203.2" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="137.16" x2="191.77" y2="137.16" width="0.1524" layer="91"/>
+<junction x="191.77" y="137.16"/>
 </segment>
 <segment>
 <pinref part="AT42QT1070" gate="G$1" pin="VDD"/>
@@ -8075,10 +8090,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <junction x="45.72" y="207.01"/>
 </segment>
 <segment>
-<pinref part="U$23" gate="G$1" pin="2"/>
-<wire x1="114.3" y1="212.09" x2="115.57" y2="212.09" width="0.1524" layer="91"/>
-<wire x1="115.57" y1="212.09" x2="115.57" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="U$23" gate="G$1" pin="1"/>
 <pinref part="SUPPLY6" gate="1" pin="VCC"/>
+<wire x1="100.33" y1="200.66" x2="100.33" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -8368,9 +8382,12 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <pinref part="AT42QT1070" gate="G$1" pin="OUT1"/>
 <wire x1="95.25" y1="219.71" x2="96.52" y2="219.71" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="219.71" x2="96.52" y2="212.09" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="212.09" x2="104.14" y2="212.09" width="0.1524" layer="91"/>
 <label x="97.79" y="212.09" size="1.778" layer="95"/>
-<pinref part="U$23" gate="G$1" pin="1"/>
+<wire x1="96.52" y1="212.09" x2="100.33" y2="212.09" width="0.1524" layer="91"/>
+<pinref part="U$23" gate="G$1" pin="2"/>
+<wire x1="100.33" y1="212.09" x2="106.68" y2="212.09" width="0.1524" layer="91"/>
+<wire x1="100.33" y1="212.09" x2="100.33" y2="210.82" width="0.1524" layer="91"/>
+<junction x="100.33" y="212.09"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="PD3(INT1)"/>
@@ -8664,6 +8681,13 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <pinref part="U$13" gate="G$1" pin="1"/>
 <wire x1="123.19" y1="237.49" x2="119.38" y2="237.49" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="237.49" x2="119.38" y2="246.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$18" class="0">
+<segment>
+<pinref part="C4" gate="G$1" pin="1"/>
+<pinref part="U$25" gate="G$1" pin="2"/>
+<wire x1="203.2" y1="151.13" x2="203.2" y2="148.59" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
