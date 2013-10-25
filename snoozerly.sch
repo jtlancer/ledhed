@@ -4511,8 +4511,8 @@ High-power, low thermal resistance package.</description>
 <rectangle x1="4.191" y1="2.2733" x2="4.699" y2="3.7465" layer="51"/>
 </package>
 <package name="DO-214AA">
-<smd name="C" x="-1.53" y="-0.17" dx="2.2" dy="1.6" layer="1" rot="R90"/>
-<smd name="A" x="2.16" y="-0.17" dx="2.2" dy="1.6" layer="1" rot="R90"/>
+<smd name="C" x="-2.03" y="-0.17" dx="2.7" dy="2.6" layer="1" rot="R90"/>
+<smd name="A" x="2.66" y="-0.17" dx="2.7" dy="2.6" layer="1" rot="R90"/>
 <wire x1="0" y1="-0.635" x2="0" y2="0.635" width="0.127" layer="21"/>
 <text x="-2.286" y="-2.159" size="0.4064" layer="25">&gt;NAME</text>
 <text x="0.254" y="-2.159" size="0.4064" layer="27">&gt;VALUE</text>
@@ -4612,6 +4612,48 @@ High-power, low thermal resistance package.</description>
 <smd name="2" x="-5.08" y="-0.08" dx="3" dy="1" layer="1" rot="R90"/>
 <smd name="1" x="-7.62" y="-0.08" dx="3" dy="1" layer="1" rot="R90"/>
 <smd name="7" x="7.62" y="-0.08" dx="3" dy="1" layer="1" rot="R90"/>
+</package>
+<package name="SO-14">
+<wire x1="4.064" y1="1.9558" x2="-4.064" y2="1.9558" width="0.1524" layer="21"/>
+<wire x1="4.064" y1="-1.9558" x2="4.445" y2="-1.5748" width="0.1524" layer="21" curve="90"/>
+<wire x1="-4.445" y1="1.5748" x2="-4.064" y2="1.9558" width="0.1524" layer="21" curve="-90"/>
+<wire x1="4.064" y1="1.9558" x2="4.445" y2="1.5748" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-4.445" y1="-1.5748" x2="-4.064" y2="-1.9558" width="0.1524" layer="21" curve="90"/>
+<wire x1="-4.064" y1="-1.9558" x2="4.064" y2="-1.9558" width="0.1524" layer="21"/>
+<wire x1="4.445" y1="-1.5748" x2="4.445" y2="1.5748" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="1.5748" x2="-4.445" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="0.508" x2="-4.445" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="-0.508" x2="-4.445" y2="-1.5748" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="0.508" x2="-4.445" y2="-0.508" width="0.1524" layer="21" curve="-180"/>
+<wire x1="-4.445" y1="-1.6002" x2="4.445" y2="-1.6002" width="0.1524" layer="21"/>
+<smd name="1" x="-3.81" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="14" x="-3.81" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="2" x="-2.54" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="3" x="-1.27" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="13" x="-2.54" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="12" x="-1.27" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="4" x="0" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="11" x="0" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="5" x="1.27" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="6" x="2.54" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="10" x="1.27" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="9" x="2.54" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="7" x="3.81" y="-3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<smd name="8" x="3.81" y="3.0734" dx="0.6604" dy="2.032" layer="1"/>
+<rectangle x1="-0.254" y1="1.9558" x2="0.254" y2="3.0988" layer="51"/>
+<rectangle x1="-4.064" y1="-3.0988" x2="-3.556" y2="-1.9558" layer="51"/>
+<rectangle x1="-2.794" y1="-3.0988" x2="-2.286" y2="-1.9558" layer="51"/>
+<rectangle x1="-1.524" y1="-3.0734" x2="-1.016" y2="-1.9304" layer="51"/>
+<rectangle x1="-0.254" y1="-3.0988" x2="0.254" y2="-1.9558" layer="51"/>
+<rectangle x1="-1.524" y1="1.9558" x2="-1.016" y2="3.0988" layer="51"/>
+<rectangle x1="-2.794" y1="1.9558" x2="-2.286" y2="3.0988" layer="51"/>
+<rectangle x1="-4.064" y1="1.9558" x2="-3.556" y2="3.0988" layer="51"/>
+<rectangle x1="1.016" y1="1.9558" x2="1.524" y2="3.0988" layer="51"/>
+<rectangle x1="2.286" y1="1.9558" x2="2.794" y2="3.0988" layer="51"/>
+<rectangle x1="3.556" y1="1.9558" x2="4.064" y2="3.0988" layer="51"/>
+<rectangle x1="1.016" y1="-3.0988" x2="1.524" y2="-1.9558" layer="51"/>
+<rectangle x1="2.286" y1="-3.0988" x2="2.794" y2="-1.9558" layer="51"/>
+<rectangle x1="3.556" y1="-3.0988" x2="4.064" y2="-1.9558" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -4887,6 +4929,27 @@ High-power, low thermal resistance package.</description>
 </gates>
 <devices>
 <device name="" package="SOIC-14">
+<connects>
+<connect gate="G$1" pin="KEY0" pad="13"/>
+<connect gate="G$1" pin="KEY1" pad="12"/>
+<connect gate="G$1" pin="KEY2" pad="11"/>
+<connect gate="G$1" pin="KEY3" pad="10"/>
+<connect gate="G$1" pin="KEY4" pad="9"/>
+<connect gate="G$1" pin="MODE(VDD)" pad="2"/>
+<connect gate="G$1" pin="OUT0" pad="3"/>
+<connect gate="G$1" pin="OUT1" pad="8"/>
+<connect gate="G$1" pin="OUT2" pad="7"/>
+<connect gate="G$1" pin="OUT3" pad="6"/>
+<connect gate="G$1" pin="OUT4" pad="5"/>
+<connect gate="G$1" pin="RESET" pad="4"/>
+<connect gate="G$1" pin="VDD" pad="1"/>
+<connect gate="G$1" pin="VSS" pad="14"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SO-14" package="SO-14">
 <connects>
 <connect gate="G$1" pin="KEY0" pad="13"/>
 <connect gate="G$1" pin="KEY1" pad="12"/>
@@ -7619,7 +7682,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="BAT1" library="SparkFun-Electromechanical" deviceset="BATTERY" device="12MM"/>
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$1" library="jt_parts" deviceset="FRAME_LETTER" device=""/>
-<part name="AT42QT1070" library="jt_parts" deviceset="AT42QT1070" device=""/>
+<part name="AT42QT1070" library="jt_parts" deviceset="AT42QT1070" device="SO-14" value="AT42QT1070SO-14"/>
 <part name="SUPPLY2" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="U$7" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
