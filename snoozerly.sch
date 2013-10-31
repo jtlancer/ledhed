@@ -7701,7 +7701,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="C6" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="SUPPLY10" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
-<part name="SERIAL" library="SparkFun-Connectors" deviceset="M03" device="POGO_PIN_HOLES_ONLY"/>
+<part name="SERIAL" library="SparkFun-Connectors" deviceset="M03" device="1X03_NO_SILK"/>
 <part name="ICSP" library="SparkFun-Connectors" deviceset="M03X2" device="POGO_PINS"/>
 <part name="Q4" library="SparkFun-DiscreteSemi" deviceset="MOSFET-NCHANNEL" device="BSS123LT1G"/>
 <part name="12V" library="SparkFun-Connectors" deviceset="M01" device="PTH_LONGPAD"/>
@@ -7717,7 +7717,6 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="U$24" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="U$25" library="adafruit" deviceset="R-US_" device="R0603" value="zero"/>
-<part name="U$26" library="jt_parts" deviceset="M07" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7921,7 +7920,6 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <instance part="U$25" gate="G$1" x="201.93" y="139.7" smashed="yes" rot="R90">
 <attribute name="VALUE" x="205.232" y="135.89" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$26" gate="G$1" x="123.19" y="229.87"/>
 </instances>
 <busses>
 </busses>
@@ -8039,11 +8037,6 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <junction x="209.55" y="215.9"/>
 </segment>
 <segment>
-<wire x1="134.62" y1="149.86" x2="143.51" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="SERIAL" gate="G$1" pin="1"/>
-<label x="135.89" y="149.86" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="ICSP" gate="G$1" pin="6"/>
 <wire x1="138.43" y1="170.18" x2="146.05" y2="170.18" width="0.1524" layer="91"/>
 <label x="139.7" y="170.18" size="1.778" layer="95"/>
@@ -8052,6 +8045,11 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <pinref part="Q4" gate="G$1" pin="S"/>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="245.11" y1="207.01" x2="250.19" y2="207.01" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="SERIAL" gate="G$1" pin="1"/>
+<wire x1="134.62" y1="149.86" x2="143.51" y2="149.86" width="0.1524" layer="91"/>
+<label x="135.89" y="149.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="5V" class="2">
