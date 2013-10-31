@@ -4272,6 +4272,25 @@ High-power, low thermal resistance package.</description>
 <smd name="1" x="-2.28" y="-2.77" dx="1.6" dy="3" layer="1"/>
 <smd name="3" x="2.28" y="-2.77" dx="1.6" dy="3" layer="1"/>
 <smd name="4" x="0" y="4.128" dx="4.826" dy="5.715" layer="1"/>
+<wire x1="3.2766" y1="5.1054" x2="3.277" y2="-0.889" width="0.2032" layer="21"/>
+<wire x1="3.277" y1="-0.889" x2="-3.277" y2="-0.889" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="-0.889" x2="-3.2766" y2="5.1054" width="0.2032" layer="21"/>
+<wire x1="-3.277" y1="5.105" x2="3.2774" y2="5.1046" width="0.2032" layer="51"/>
+<wire x1="-2.5654" y1="5.207" x2="-2.5654" y2="5.9182" width="0.2032" layer="51"/>
+<wire x1="2.1082" y1="6.3754" x2="2.5654" y2="5.9182" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="5.9182" x2="2.5654" y2="5.207" width="0.2032" layer="51"/>
+<wire x1="2.5654" y1="5.207" x2="-2.5654" y2="5.207" width="0.2032" layer="51"/>
+<rectangle x1="-2.7178" y1="-3.8862" x2="-1.8542" y2="-0.9906" layer="51"/>
+<rectangle x1="1.8542" y1="-3.8862" x2="2.7178" y2="-0.9906" layer="51"/>
+<rectangle x1="-0.4318" y1="-1.7526" x2="0.4318" y2="-0.9906" layer="21"/>
+<polygon width="0.1998" layer="51">
+<vertex x="-2.5654" y="5.207"/>
+<vertex x="-2.5654" y="5.9182"/>
+<vertex x="-2.1082" y="6.3754"/>
+<vertex x="2.1082" y="6.3754"/>
+<vertex x="2.5654" y="5.9182"/>
+<vertex x="2.5654" y="5.207"/>
+</polygon>
 </package>
 <package name="SOIC-14">
 <description>Footprint from Sparkfun DigitalIC Library</description>
@@ -4466,8 +4485,6 @@ High-power, low thermal resistance package.</description>
 <wire x1="-3.277" y1="-3.429" x2="-3.2766" y2="2.5654" width="0.2032" layer="21"/>
 <wire x1="-3.277" y1="2.565" x2="3.2774" y2="2.5646" width="0.2032" layer="51"/>
 <wire x1="-2.5654" y1="2.667" x2="-2.5654" y2="3.3782" width="0.2032" layer="51"/>
-<wire x1="-2.5654" y1="3.3782" x2="-2.1082" y2="3.8354" width="0.2032" layer="51"/>
-<wire x1="-2.1082" y1="3.8354" x2="2.1082" y2="3.8354" width="0.2032" layer="51"/>
 <wire x1="2.1082" y1="3.8354" x2="2.5654" y2="3.3782" width="0.2032" layer="51"/>
 <wire x1="2.5654" y1="3.3782" x2="2.5654" y2="2.667" width="0.2032" layer="51"/>
 <wire x1="2.5654" y1="2.667" x2="-2.5654" y2="2.667" width="0.2032" layer="51"/>
@@ -7578,7 +7595,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="U$24" library="adafruit" deviceset="R-US_" device="R0603" value="10k"/>
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="U$25" library="adafruit" deviceset="R-US_" device="R0603" value="zero"/>
-<part name="U$26" library="jt_parts" deviceset="VREG-3.3V" device="NCP1117"/>
+<part name="NCP1117" library="jt_parts" deviceset="VREG-3.3V" device="NCP1117"/>
 </parts>
 <sheets>
 <sheet>
@@ -7594,6 +7611,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <text x="223.52" y="198.12" size="2.032" layer="91" ratio="10">LCD Backlight Section</text>
 <text x="179.07" y="198.12" size="2.032" layer="91">Display Section</text>
 <text x="162.56" y="262.89" size="2.032" layer="91">Power Section</text>
+<text x="212.09" y="284.48" size="1.778" layer="91">3.3V</text>
 </plain>
 <instances>
 <instance part="C8" gate="G$1" x="220.98" y="276.86" smashed="yes">
@@ -7781,7 +7799,9 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <instance part="U$25" gate="G$1" x="201.93" y="139.7" smashed="yes" rot="R90">
 <attribute name="VALUE" x="205.232" y="135.89" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$26" gate="G$1" x="195.58" y="283.21"/>
+<instance part="NCP1117" gate="G$1" x="195.58" y="283.21" smashed="yes">
+<attribute name="NAME" x="190.5" y="287.02" size="1.778" layer="95"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -7801,7 +7821,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <wire x1="220.98" y1="274.32" x2="220.98" y2="273.05" width="0.1524" layer="91"/>
 <wire x1="220.98" y1="273.05" x2="209.55" y2="273.05" width="0.1524" layer="91"/>
 <junction x="209.55" y="273.05"/>
-<pinref part="U$26" gate="G$1" pin="GND"/>
+<pinref part="NCP1117" gate="G$1" pin="GND"/>
 <wire x1="195.58" y1="275.59" x2="195.58" y2="273.05" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -7924,7 +7944,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <pinref part="C7" gate="G$1" pin="+"/>
 <wire x1="209.55" y1="281.94" x2="209.55" y2="283.21" width="0.1524" layer="91"/>
 <junction x="220.98" y="283.21"/>
-<pinref part="U$26" gate="G$1" pin="OUT"/>
+<pinref part="NCP1117" gate="G$1" pin="OUT"/>
 <wire x1="203.2" y1="283.21" x2="209.55" y2="283.21" width="0.1524" layer="91"/>
 <junction x="209.55" y="283.21"/>
 </segment>
@@ -8231,7 +8251,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <junction x="168.91" y="283.21"/>
 <pinref part="C5" gate="G$1" pin="+"/>
 <wire x1="180.34" y1="281.94" x2="180.34" y2="283.21" width="0.1524" layer="91"/>
-<pinref part="U$26" gate="G$1" pin="IN"/>
+<pinref part="NCP1117" gate="G$1" pin="IN"/>
 <wire x1="187.96" y1="283.21" x2="180.34" y2="283.21" width="0.1524" layer="91"/>
 <junction x="180.34" y="283.21"/>
 </segment>
