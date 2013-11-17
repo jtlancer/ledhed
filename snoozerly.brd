@@ -171,6 +171,7 @@
 <text x="9.144" y="13.462" size="0.762" layer="26" ratio="10" rot="MR270">LEDSTRIP</text>
 <text x="63.9826" y="21.1074" size="0.762" layer="26" ratio="10" rot="MR180">PWR</text>
 <text x="61.087" y="38.608" size="0.508" layer="1" rot="R90">v0.1</text>
+<text x="49.53" y="36.83" size="1.778" layer="1">rev0.2</text>
 </plain>
 <libraries>
 <library name="dp_pcb">
@@ -9650,7 +9651,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="24.1046" y1="7.8486" x2="24.1046" y2="6.6294" width="0.2032" layer="1"/>
 <wire x1="21.7946" y1="7.2704" x2="22.4436" y2="7.2704" width="0.2032" layer="1"/>
 <wire x1="22.4436" y1="7.2704" x2="24.6126" y2="9.4394" width="0.2032" layer="1"/>
-<wire x1="22.5746" y1="33.5594" x2="20.447" y2="33.5594" width="0" layer="19" extent="1-1"/>
+<wire x1="22.5746" y1="33.5594" x2="20.447" y2="33.5594" width="0.1524" layer="1"/>
 </signal>
 </signals>
 </board>
