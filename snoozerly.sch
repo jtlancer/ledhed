@@ -7530,7 +7530,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="C5" library="SparkFun-Capacitors" deviceset="CAP_POL" device="C" value="10uF"/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="CAP_POL" device="C" value="10uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1uF"/>
-<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1uF"/>
+<part name="C1" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="100nF"/>
 <part name="GND8" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="GND10" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -7596,6 +7596,8 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <part name="SUPPLY11" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="U$25" library="adafruit" deviceset="R-US_" device="R0603" value="zero"/>
 <part name="NCP1117" library="jt_parts" deviceset="VREG-3.3V" device="NCP1117"/>
+<part name="C9" library="SparkFun-Capacitors" deviceset="CAP" device="0805" value="0.1uF"/>
+<part name="GND7" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7721,8 +7723,8 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <instance part="AT42QT1070" gate="G$1" x="60.96" y="227.33" smashed="yes">
 <attribute name="VALUE" x="48.26" y="214.63" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY2" gate="1" x="36.83" y="234.95" smashed="yes" rot="R90">
-<attribute name="VALUE" x="39.116" y="233.934" size="1.778" layer="96" rot="R180"/>
+<instance part="SUPPLY2" gate="1" x="26.67" y="234.95" smashed="yes" rot="R90">
+<attribute name="VALUE" x="28.956" y="233.934" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="GND3" gate="1" x="81.28" y="242.57" smashed="yes" rot="R180">
 <attribute name="VALUE" x="83.82" y="245.11" size="1.778" layer="96" rot="R180"/>
@@ -7801,6 +7803,12 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 </instance>
 <instance part="NCP1117" gate="G$1" x="195.58" y="283.21" smashed="yes">
 <attribute name="NAME" x="190.5" y="287.02" size="1.778" layer="95"/>
+</instance>
+<instance part="C9" gate="G$1" x="31.75" y="242.57" smashed="yes" rot="R180">
+<attribute name="VALUE" x="26.924" y="241.681" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND7" gate="1" x="31.75" y="250.19" smashed="yes" rot="R180">
+<attribute name="VALUE" x="34.29" y="252.73" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -7934,6 +7942,12 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="81.28" y1="234.95" x2="81.28" y2="240.03" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="C9" gate="G$1" pin="2"/>
+<wire x1="31.75" y1="245.11" x2="31.75" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="31.75" y1="247.65" x2="31.75" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="5V" class="2">
 <segment>
@@ -8036,7 +8050,20 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <segment>
 <pinref part="SUPPLY2" gate="1" pin="VCC"/>
 <pinref part="AT42QT1070" gate="G$1" pin="VDD"/>
-<wire x1="36.83" y1="234.95" x2="43.18" y2="234.95" width="0.1524" layer="91"/>
+<wire x1="26.67" y1="234.95" x2="31.75" y2="234.95" width="0.1524" layer="91"/>
+<pinref part="AT42QT1070" gate="G$1" pin="RESET"/>
+<wire x1="31.75" y1="234.95" x2="40.64" y2="234.95" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="234.95" x2="43.18" y2="234.95" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="227.33" x2="40.64" y2="227.33" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="227.33" x2="40.64" y2="232.41" width="0.1524" layer="91"/>
+<junction x="40.64" y="234.95"/>
+<pinref part="AT42QT1070" gate="G$1" pin="MODE(VDD)"/>
+<wire x1="40.64" y1="232.41" x2="40.64" y2="234.95" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="232.41" x2="40.64" y2="232.41" width="0.1524" layer="91"/>
+<junction x="40.64" y="232.41"/>
+<pinref part="C9" gate="G$1" pin="1"/>
+<wire x1="31.75" y1="234.95" x2="31.75" y2="237.49" width="0.1524" layer="91"/>
+<junction x="31.75" y="234.95"/>
 </segment>
 </net>
 <net name="N$1" class="0">
