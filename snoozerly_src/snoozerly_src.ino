@@ -61,8 +61,12 @@ int old_key = 0;
 #define ADJUST_ALARM_SCREEN 3
   #define ADJUST_ALARM_HOUR_ITEM 0
   #define ADJUST_ALARM_MINUTES_ITEM 1
+  #define ADJUST_ALARM_DURATION_ITEM 2
   #define ADJUST_ALARM_SAVE_ITEM 2
-
+#define BACKLIGHT_SCREEN 4
+  #define ADJUST_BACKLIGHT_ITEM 0
+  #define ADJUST_BACKLIGHT_SAVE_ITEM 1
+  
 //int screen_items[5] = {3, 3, 3, 3, 1};
 int active_screen = ROOT_SCREEN;
 int active_item = ROOT_SETTINGS_ITEM;
@@ -162,8 +166,7 @@ void loop() {
           display.println("( ( Alarm ) )"); 
         } else {
           display.println("");
-        }
-        
+        }        
         display.println("");
         
         display.print("ON-");
@@ -506,10 +509,55 @@ void loop() {
       if (new_key != 0) {
         update_screen = true;
       }
-    } 
+    ////////// Adjust Time SAVE Item //////////////////////////////////
+    } else if (active_item == ADJUST_TIME_SAVE_ITEM) {  
+      
+      if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, return to set time minutes
+        active_item = ADJUST_TIME_MINUTES_ITEM;
+        
+      // right button pressed, SAVE the new time to RTC and go back to settings menu  
+      } else if (new_key == my_key_pins[RIGHT_KEY]) { 
+        active_screen = SETTINGS_SCREEN;
+        active_item = SETTINGS_TIME_ITEM;
+        DateTime save_time (time_now.year(), time_now.month(), time_now.day(), time_hour_temp, time_minute_temp, 0);
+        rtc.adjust(save_time);
+        time_hour_temp = 999;
+        time_minute_temp = 999;
+      }            
   
+      // update the screen if first loop, minutes changed, or arrived from another screen/item
+      if (update_screen) {
+        display.clearDisplay();
+        display.display();
+        
+        display.setCursor(0,0);
+        display.setTextColor(BLACK);
+        display.setTextSize(1);
+        display.println("- Save Time -");
+ 
+        display.setTextSize(2);        
+        display.print(time_hour_temp);
+        display.setTextColor(BLACK);
+        display.print(":");        
+        display.println(time_minute_temp);  
+        display.println("");
+        
+        display.setTextSize(1);
+        display.print("<<      ");
+        display.setTextColor(WHITE, BLACK); // inverted text
+        display.println(" SAVE ");
+        display.display();
+        
+        update_screen = false;
+      }
+      
+      if ((new_key == my_key_pins[LEFT_KEY]) || (new_key == my_key_pins[RIGHT_KEY])) {
+        update_screen = true;
+      }
+    }
   ////////// Adjust ALARM Screen //////////////////////////////////  
   } else if (active_screen == ADJUST_ALARM_SCREEN) {
+    
     ////////// Adjust ALARM HOUR Item //////////////////////////////////
     if (active_item == ADJUST_ALARM_HOUR_ITEM) {    
       if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
