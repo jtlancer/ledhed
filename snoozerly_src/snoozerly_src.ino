@@ -158,8 +158,13 @@ void loop() {
         
         display.setTextSize(2);
         display.print(time_now.hour(), DEC); 
-        display.print(":");    
-        display.println(time_now.minute());  
+        display.print(":");
+        if (time_now.minute() < 10) {
+          display.print("0");
+          display.println(time_now.minute(), DEC);
+        } else {
+          display.println(time_now.minute(), DEC);
+        }
         
         display.setTextSize(1);  
         if (active_mode[ALARM_MODE]) {
@@ -217,8 +222,13 @@ void loop() {
           
           display.setTextSize(2);
           display.print(time_now.hour(), DEC); 
-          display.print(":");    
-          display.println(time_now.minute());  
+          display.print(":");
+          if (time_now.minute() < 10) {
+            display.print("0");
+            display.println(time_now.minute(), DEC);
+          } else {
+            display.println(time_now.minute(), DEC);
+          }
           
           display.setTextSize(1);
           if (active_mode[ALARM_MODE]) {
@@ -259,9 +269,9 @@ void loop() {
            nightlight_level = nightlight_level - 5;
            analogWrite(nightlight_pin, nightlight_level);
          }
-      } else if (new_key == my_key_pins[LEFT_KEY]) {         
+      } else if (new_key == my_key_pins[LEFT_KEY]) {
         active_item = ROOT_SETTINGS_ITEM;
-      }  else if (new_key == my_key_pins[RIGHT_KEY]) {         
+      }  else if (new_key == my_key_pins[RIGHT_KEY]) { 
         active_item = ROOT_MANUAL_ITEM;
       }
       
@@ -277,8 +287,13 @@ void loop() {
         
         display.setTextSize(2);
         display.print(time_now.hour(), DEC); 
-        display.print(":");    
-        display.println(time_now.minute());  
+        display.print(":");
+        if (time_now.minute() < 10) {
+          display.print("0");
+          display.println(time_now.minute(), DEC);
+        } else {
+          display.println(time_now.minute(), DEC);
+        }
         
         display.setTextSize(1);
         if (active_mode[ALARM_MODE]) {
@@ -439,7 +454,12 @@ void loop() {
         display.print(time_hour_temp);  
         display.setTextColor(BLACK);
         display.print(":");     
-        display.println(time_minute_temp);  
+        if (time_minute_temp < 10) {
+          display.print("0");
+          display.println(time_minute_temp);
+        } else {
+          display.println(time_minute_temp);  
+        }
         
         display.setTextSize(1);
         display.print(" << ");
@@ -493,7 +513,12 @@ void loop() {
         display.setTextColor(BLACK);
         display.print(":");        
         display.setTextColor(WHITE, BLACK); // inverted text
-        display.println(time_minute_temp);  
+        if (time_minute_temp < 10) {
+          display.print("0");
+          display.println(time_minute_temp);
+        } else {
+          display.println(time_minute_temp);  
+        }
         
         display.setTextSize(1);
         display.setTextColor(BLACK);
@@ -539,7 +564,12 @@ void loop() {
         display.print(time_hour_temp);
         display.setTextColor(BLACK);
         display.print(":");        
-        display.println(time_minute_temp);  
+        if (time_minute_temp < 10) {
+          display.print("0");
+          display.println(time_minute_temp);
+        } else {
+          display.println(time_minute_temp);  
+        } 
         display.println("");
         
         display.setTextSize(1);
