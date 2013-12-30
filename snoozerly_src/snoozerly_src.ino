@@ -7,15 +7,6 @@
 
 RTC_DS1388 rtc;
 
-// time variables
-DateTime time_last_update = 0;
-int time_hour_temp = 999;
-int time_minute_temp = 999;
-int alarm_hour = 999;
-int alarm_minute = 999;
-int alarm_hour_temp = 999;
-int alarm_minute_temp = 999;
-
 int backlight_pin = 9;
 int nightlight_pin = 10;
 int ledstrip_pin = 5;
@@ -77,6 +68,15 @@ int active_screen = ROOT_SCREEN;
 int active_item = ROOT_SETTINGS_ITEM;
 boolean update_screen = true;
 
+// time variables
+DateTime time_last_update = 0;
+int time_hour_temp = 999;
+int time_minute_temp = 999;
+int alarm_hour = 999;
+int alarm_minute = 999;
+int alarm_hour_temp = 999;
+int alarm_minute_temp = 999;
+
 // operating modes
 // [0] = manual
 // [1] = alarm
@@ -102,7 +102,6 @@ void setup() {
   display.begin();
   rtc.begin();  
   
-  //rtc.adjust(DateTime(__DATE__, __TIME__));
   time_last_update = rtc.now();
   
   for(int i=0; i < NUM_KEY_PINS; i++) {
@@ -650,7 +649,7 @@ void loop() {
       } else if (new_key == my_key_pins[DOWN_KEY]) {
         if ((alarm_hour_temp - 1) >= 0) {
           alarm_hour_temp--;        
-        } else if (time_hour_temp == 0) {
+        } else if (alarm_hour_temp == 0) {
           alarm_hour_temp = 23;
         }        
       } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, goto manual item
@@ -857,17 +856,16 @@ void loop() {
         display.setTextSize(1);
         display.println("-Start Alarm-");        
         
-        display.println("Alarm is:");  
         display.setTextSize(2);
+        display.println("Alarm");
         if (active_mode[ALARM_MODE]) {
           display.println("ON");
         } else {
           display.println("OFF");
         }      
-        display.println("");
         
         display.setTextSize(1);
-        display.print("OFF     ");
+        display.print("OFF         ");
         display.print("ON");
         display.display();
         
