@@ -11,6 +11,8 @@ RTC_DS1388 rtc;
 DateTime time_last_update = 0;
 int time_hour_temp = 999;
 int time_minute_temp = 999;
+int alarm_hour = 999;
+int alarm_minute = 999;
 int alarm_hour_temp = 999;
 int alarm_minute_temp = 999;
 
@@ -51,21 +53,24 @@ int old_key = 0;
 #define SETTINGS_SCREEN 1
   #define SETTINGS_TIME_ITEM 0
   #define SETTINGS_ALARM_ITEM 1
-  #define SETTINGS_BACKLIGHT_ITEM 2
+  #define SETTINGS_ALARM_ENABLE_ITEM 2
+  //#define SETTINGS_BACKLIGHT_ITEM 3
 // adjust settings screen items
 #define ADJUST_TIME_SCREEN 2
   #define ADJUST_TIME_HOUR_ITEM 0
-  #define ADJUST_TIME_MINUTES_ITEM 1
+  #define ADJUST_TIME_MINUTE_ITEM 1
   #define ADJUST_TIME_SAVE_ITEM 2
 // adjust settings screen items
 #define ADJUST_ALARM_SCREEN 3
   #define ADJUST_ALARM_HOUR_ITEM 0
-  #define ADJUST_ALARM_MINUTES_ITEM 1
-  #define ADJUST_ALARM_DURATION_ITEM 2
+  #define ADJUST_ALARM_MINUTE_ITEM 1
+  //#define ADJUST_ALARM_DURATION_ITEM 2
   #define ADJUST_ALARM_SAVE_ITEM 2
-#define BACKLIGHT_SCREEN 4
-  #define ADJUST_BACKLIGHT_ITEM 0
-  #define ADJUST_BACKLIGHT_SAVE_ITEM 1
+#define ADJUST_ALARM_ENABLE_SCREEN 4
+  #define ADJUST_ALARM_ENABLE_ITEM 0
+//#define BACKLIGHT_SCREEN 5
+  //#define ADJUST_BACKLIGHT_ITEM 0
+  //#define ADJUST_BACKLIGHT_SAVE_ITEM 1
   
 //int screen_items[5] = {3, 3, 3, 3, 1};
 int active_screen = ROOT_SCREEN;
@@ -79,7 +84,7 @@ boolean update_screen = true;
 #define MANUAL_MODE 0
 #define ALARM_MODE 1
 #define NIGHTLIGHT_MODE 2
-boolean active_mode[3] = {false, true, false};
+boolean active_mode[3] = {false, false, false};
 
 // pin 8 - Serial clock out (SCLK)
 // pin 7 - Serial data out (DIN)
@@ -170,7 +175,7 @@ void loop() {
         if (active_mode[ALARM_MODE]) {
           display.println("( ( Alarm ) )"); 
         } else {
-          display.println("");
+          display.println("x x Alarm x x");
         }        
         display.println("");
         
@@ -178,7 +183,7 @@ void loop() {
         display.setTextColor(WHITE, BLACK); // inverted text
         display.print(" SET ");
         display.setTextColor(BLACK);
-        display.println("-NITE");
+        display.print("-NITE");
         display.display();
         
         update_screen = false;
@@ -245,7 +250,7 @@ void loop() {
           display.print(" ON "); 
           display.setTextColor(BLACK);
           display.print("-SET");
-          display.println("-NITE");
+          display.print("-NITE");
           display.display();
           
           update_screen = false;
@@ -309,7 +314,7 @@ void loop() {
         display.print("ON"); 
         display.print("-SET-");
         display.setTextColor(WHITE, BLACK); // inverted text
-        display.println(" NITE ");
+        display.print(" NITE ");
         display.display();
     
         update_screen = false;    
@@ -330,12 +335,12 @@ void loop() {
      time_minute_temp = 999;
      
      if (new_key == my_key_pins[UP_KEY]) { // top button pressed
-      active_screen = ADJUST_TIME_SCREEN;
-      active_item = ADJUST_TIME_HOUR_ITEM;
+       active_screen = ADJUST_TIME_SCREEN;
+       active_item = ADJUST_TIME_HOUR_ITEM;
      } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed
-      active_screen = ROOT_SCREEN;
+       active_screen = ROOT_SCREEN;
      } else if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed
-      active_item = SETTINGS_ALARM_ITEM;
+       active_item = SETTINGS_ALARM_ITEM;
      }            
   
       // update the screen if minutes changed or arrived from another screen/item
@@ -355,7 +360,7 @@ void loop() {
        display.setTextSize(1);
         display.print(" << ");
         display.print(" SET ");
-        display.println(" >> ");
+        display.print(" >> ");
         display.display();
         
         update_screen = false;
@@ -376,8 +381,8 @@ void loop() {
         } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, goto manual item
           active_item = SETTINGS_TIME_ITEM;
         } else if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed, goto nightlight
-          active_item = SETTINGS_BACKLIGHT_ITEM;
-        }            
+          active_item = SETTINGS_ALARM_ENABLE_ITEM;
+        }
    
         // update the screen if first loop, minutes changed, or arrived from another screen/item
         if (update_screen) {
@@ -396,13 +401,49 @@ void loop() {
           display.setTextSize(1);
           display.print(" << ");
           display.print(" SET ");
-          display.println(" >> ");
+          display.print(" >> ");
           display.display();
           
           update_screen = false;
         }
         
         if ((new_key == my_key_pins[UP_KEY]) || (new_key == my_key_pins[LEFT_KEY]) || (new_key == my_key_pins[RIGHT_KEY])) {
+          update_screen = true;
+        }
+        
+    ///////////// Settings ALARM ENABLE ////////////////////////////////////////////////         
+    } else if (active_item == SETTINGS_ALARM_ENABLE_ITEM) {
+      
+       if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
+          active_screen = ADJUST_ALARM_ENABLE_SCREEN;
+          active_item = ADJUST_ALARM_ENABLE_ITEM;
+        } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, goto manual item
+          active_item = SETTINGS_ALARM_ITEM;
+        }             
+   
+        // update the screen if first loop, minutes changed, or arrived from another screen/item
+        if (update_screen) {
+          display.clearDisplay();
+          display.display();
+          
+          display.setCursor(0,0);
+          display.setTextColor(BLACK);
+          display.setTextSize(1);
+          display.println("- Settings -");
+          
+          display.setTextSize(2);
+          display.println("Enable");
+          display.println("Alarm");
+          
+          display.setTextSize(1);
+          display.print(" << ");
+          display.print(" SET ");
+          display.display();
+          
+          update_screen = false;
+        }
+        
+        if ((new_key == my_key_pins[UP_KEY]) || (new_key == my_key_pins[LEFT_KEY])) {
           update_screen = true;
         }
     }
@@ -434,7 +475,7 @@ void loop() {
         active_screen = SETTINGS_SCREEN;
         active_item = SETTINGS_TIME_ITEM;
       } else if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed, goto nightlight
-        active_item = ADJUST_TIME_MINUTES_ITEM;
+        active_item = ADJUST_TIME_MINUTE_ITEM;
       }            
   
       // update the screen if first loop, minutes changed, or arrived from another screen/item
@@ -450,7 +491,6 @@ void loop() {
         display.println("Adjust Hour");
         display.setTextSize(2);
         display.setTextColor(WHITE, BLACK); // inverted text
-        //display.print(" ");
         display.print(time_hour_temp);  
         display.setTextColor(BLACK);
         display.print(":");     
@@ -465,7 +505,7 @@ void loop() {
         display.print(" << ");
         display.print(" ADJ ");
         display.setTextColor(BLACK);
-        display.println(" >> ");
+        display.print(" >> ");
         display.display();
         
         update_screen = false;
@@ -476,7 +516,7 @@ void loop() {
       }      
  
     ////////// Adjust Time MINUTE Item //////////////////////////////////
-    } else if (active_item == ADJUST_TIME_MINUTES_ITEM) {    
+    } else if (active_item == ADJUST_TIME_MINUTE_ITEM) {    
       
       if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
         if ((time_minute_temp + 1) < 60) {
@@ -525,7 +565,7 @@ void loop() {
         display.print(" << ");
         display.print(" ADJ ");
         display.setTextColor(BLACK);
-        display.println(" >> ");
+        display.print(" >> ");
         display.display();
         
         update_screen = false;
@@ -535,10 +575,10 @@ void loop() {
         update_screen = true;
       }
     ////////// Adjust Time SAVE Item //////////////////////////////////
-    } else if (active_item == ADJUST_TIME_SAVE_ITEM) {  
+    } else if (active_item == ADJUST_TIME_SAVE_ITEM) {
       
       if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, return to set time minutes
-        active_item = ADJUST_TIME_MINUTES_ITEM;
+        active_item = ADJUST_TIME_MINUTE_ITEM;
         
       // right button pressed, SAVE the new time to RTC and go back to settings menu  
       } else if (new_key == my_key_pins[RIGHT_KEY]) { 
@@ -550,7 +590,7 @@ void loop() {
         time_minute_temp = 999;
       }            
   
-      // update the screen if first loop, minutes changed, or arrived from another screen/item
+      // update the screen if arrived from another screen/item
       if (update_screen) {
         display.clearDisplay();
         display.display();
@@ -575,7 +615,7 @@ void loop() {
         display.setTextSize(1);
         display.print("<<      ");
         display.setTextColor(WHITE, BLACK); // inverted text
-        display.println(" SAVE ");
+        display.print(" SAVE ");
         display.display();
         
         update_screen = false;
@@ -588,19 +628,36 @@ void loop() {
   ////////// Adjust ALARM Screen //////////////////////////////////  
   } else if (active_screen == ADJUST_ALARM_SCREEN) {
     
+    if ((alarm_hour == 999) && (alarm_hour_temp == 999)) {
+      alarm_hour_temp = 12;
+    } else if ((alarm_hour != 999) && (alarm_hour_temp == 999)) {
+      alarm_hour_temp = alarm_hour;
+    }
+    if ((alarm_minute == 999) && (alarm_minute_temp == 999)) {
+      alarm_minute_temp = 0;
+    } else if ((alarm_minute != 999) && (alarm_minute_temp == 999)) {
+      alarm_minute_temp = alarm_minute;
+    }
+    
     ////////// Adjust ALARM HOUR Item //////////////////////////////////
     if (active_item == ADJUST_ALARM_HOUR_ITEM) {    
       if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
-
-        
+        if ((alarm_hour_temp + 1) < 24) {
+          alarm_hour_temp++;        
+        } else if ((alarm_hour_temp + 1) == 24){
+          alarm_hour_temp = 0;
+        }
       } else if (new_key == my_key_pins[DOWN_KEY]) {
-        
-      
+        if ((alarm_hour_temp - 1) >= 0) {
+          alarm_hour_temp--;        
+        } else if (time_hour_temp == 0) {
+          alarm_hour_temp = 23;
+        }        
       } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, goto manual item
         active_screen = SETTINGS_SCREEN;
         active_item = SETTINGS_ALARM_ITEM;
       } else if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed, goto nightlight
-        active_item = ADJUST_ALARM_MINUTES_ITEM;
+        active_item = ADJUST_ALARM_MINUTE_ITEM;
       }            
   
       // update the screen if first loop, minutes changed, or arrived from another screen/item
@@ -617,17 +674,21 @@ void loop() {
         display.setTextSize(2);
         display.setTextColor(WHITE, BLACK); // inverted text
         //display.print(" ");
-        display.print(time_now.hour(), DEC);
-        //display.print(" ");    
+        display.print(alarm_hour_temp);  
         display.setTextColor(BLACK);
         display.print(":");     
-        display.println(time_now.minute());  
+        if (alarm_minute_temp < 10) {
+          display.print("0");
+          display.println(alarm_minute_temp);
+        } else {
+          display.println(alarm_minute_temp);  
+        }
         
         display.setTextSize(1);
         display.print(" << ");
         display.print(" ADJ ");
         display.setTextColor(BLACK);
-        display.println(" >> ");
+        display.print(" >> ");
         display.display();
         
         update_screen = false;
@@ -635,16 +696,23 @@ void loop() {
       
       if (new_key != 0) {
         update_screen = true;
-      }
+      }   
       
     ////////// Adjust ALARM MINUTE Item //////////////////////////////////
-    } else if (active_item == ADJUST_ALARM_MINUTES_ITEM) {    
-      if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
-
-        
-      } else if (new_key == my_key_pins[DOWN_KEY]) {
-        
+    } else if (active_item == ADJUST_ALARM_MINUTE_ITEM) {
       
+      if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
+        if ((alarm_minute_temp + 1) < 60) {
+          alarm_minute_temp++;        
+        } else if ((alarm_minute_temp + 1) == 60) {
+          alarm_minute_temp = 0;
+        }
+      } else if (new_key == my_key_pins[DOWN_KEY]) {
+        if ((alarm_minute_temp - 1) >= 0) {
+          alarm_minute_temp--;        
+        } else if (alarm_minute_temp == 0) {
+          alarm_minute_temp = 59;
+        }   
       } else if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, goto manual item
         active_item = ADJUST_ALARM_HOUR_ITEM;
       } else if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed, goto nightlight
@@ -659,16 +727,21 @@ void loop() {
         display.setCursor(0,0);
         display.setTextColor(BLACK);
         display.setTextSize(1);
-        display.println("- Set Time -");
+        display.println("- Set Alarm -");
         
         display.println("Adjust Minute");
         display.setTextSize(2);
         
-        display.print(time_now.hour(), DEC);
+        display.print(alarm_hour_temp);
         display.setTextColor(BLACK);
         display.print(":");        
         display.setTextColor(WHITE, BLACK); // inverted text
-        display.println(time_now.minute());  
+        if (alarm_minute_temp < 10) {
+          display.print("0");
+          display.println(alarm_minute_temp);
+        } else {
+          display.println(alarm_minute_temp);  
+        }
         
         display.setTextSize(1);
         display.setTextColor(BLACK);
@@ -684,8 +757,128 @@ void loop() {
       if (new_key != 0) {
         update_screen = true;
       }
+      
+    ////////// Adjust Alarm SAVE Item //////////////////////////////////
+    } else if (active_item == ADJUST_ALARM_SAVE_ITEM) { 
+      
+      if (new_key == my_key_pins[LEFT_KEY]) { // left button pressed, return to set time minutes
+        active_item = ADJUST_ALARM_MINUTE_ITEM;
+        
+      // right button pressed, SAVE the new alarm time and go back to settings menu  
+      } else if (new_key == my_key_pins[RIGHT_KEY]) { 
+        active_screen = SETTINGS_SCREEN;
+        active_item = SETTINGS_ALARM_ITEM;
+        alarm_hour = alarm_hour_temp;
+        alarm_minute = alarm_minute_temp;
+        alarm_hour_temp = 999;
+        alarm_minute_temp = 999;
+      }            
+  
+      // update the screen if first loop, minutes changed, or arrived from another screen/item
+      if (update_screen) {
+        display.clearDisplay();
+        display.display();
+        
+        display.setCursor(0,0);
+        display.setTextColor(BLACK);
+        display.setTextSize(1);
+        display.println("-Save Alarm-");
+ 
+        display.setTextSize(2);        
+        display.print(alarm_hour_temp);
+        display.setTextColor(BLACK);
+        display.print(":");        
+        if (alarm_minute_temp < 10) {
+          display.print("0");
+          display.println(alarm_minute_temp);
+        } else {
+          display.println(alarm_minute_temp);  
+        } 
+        display.println("");
+        
+        display.setTextSize(1);
+        display.print("<<   ");
+        display.setTextColor(WHITE, BLACK); // inverted text
+        display.print(" SAVE ");
+        display.display();
+        
+        update_screen = false;
+      }
+      
+      if ((new_key == my_key_pins[LEFT_KEY]) || (new_key == my_key_pins[RIGHT_KEY])) {
+        update_screen = true;
+      }
     }
-  }  
+    
+  ///////////// ENABLE alarm ////////////////////////////////////////////////  
+  } else if (active_screen == ADJUST_ALARM_ENABLE_SCREEN) {
+  
+    if (active_item == ADJUST_ALARM_ENABLE_ITEM) { 
+      
+      if ((new_key == my_key_pins[LEFT_KEY]) || (new_key == my_key_pins[RIGHT_KEY])) { // left button pressed, goto manual item
+        active_screen = SETTINGS_SCREEN;
+        active_item = SETTINGS_ALARM_ENABLE_ITEM;
+        update_screen = false;
+      } 
+      
+      if (new_key == my_key_pins[LEFT_KEY]) { // right button pressed, goto nightlight  
+        active_mode[ALARM_MODE] = false;
+        
+        display.clearDisplay();
+        display.display();
+        
+        display.setTextSize(2); 
+        display.println("Alarm");
+        display.print("Off");
+        display.display();
+        delay(2000);
+      }
+      
+      if (new_key == my_key_pins[RIGHT_KEY]) { // right button pressed, goto nightlight  
+        active_mode[ALARM_MODE] = true;
+        
+        display.clearDisplay();
+        display.display();
+        
+        display.setTextSize(2); 
+        display.println("Alarm");
+        display.print("On");
+        display.display();
+        delay(2000);
+      }
+  
+      // update the screen if first loop, minutes changed, or arrived from another screen/item
+      if (update_screen) {
+        display.clearDisplay();
+        display.display();
+        
+        display.setCursor(0,0);
+        display.setTextColor(BLACK);
+        display.setTextSize(1);
+        display.println("-Start Alarm-");        
+        
+        display.println("Alarm is:");  
+        display.setTextSize(2);
+        if (active_mode[ALARM_MODE]) {
+          display.println("ON");
+        } else {
+          display.println("OFF");
+        }      
+        display.println("");
+        
+        display.setTextSize(1);
+        display.print("OFF     ");
+        display.print("ON");
+        display.display();
+        
+        update_screen = false;
+      }
+      
+      if ((new_key == my_key_pins[LEFT_KEY]) || (new_key == my_key_pins[RIGHT_KEY])) {
+        update_screen = true;
+      }
+    }
+  }
 } // end of main loop
 
 //////////////////////////////////////////////////////////////////////////////////////
