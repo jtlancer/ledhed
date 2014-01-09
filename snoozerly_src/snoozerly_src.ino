@@ -125,8 +125,8 @@ void setup() {
   digitalWrite(backlight_pin, 125);
 }
 
-/////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+////// Main Loop /////////////////////////////////////////////////////////////////////
 
 void loop() {  
   ///////// check for new key press /////////////////////////////////
@@ -138,7 +138,9 @@ void loop() {
     time_last_update = time_now;
   }
   
-  ///////// Root Screen /////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  ////// Root Screen ///////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////// 
   if (active_screen == ROOT_SCREEN) {              
     if (active_item == ROOT_SETTINGS_ITEM) {
       
@@ -325,10 +327,12 @@ void loop() {
       
     }
     
-  ///////// SETTINGS Screen /////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////
+  ////// Settigns Screens //////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////// 
   } else if (active_screen == SETTINGS_SCREEN) {
 
-    //////////// Settings TIME /////////////////////////////////////////    
+    //////////// Settings TIME Item /////////////////////////////////////////    
     if (active_item == SETTINGS_TIME_ITEM) {      
      time_hour_temp = 999;
      time_minute_temp = 999;
@@ -446,8 +450,12 @@ void loop() {
           update_screen = true;
         }
     }
+  
+  //////////////////////////////////////////////////////////////////////////////////////
+  ////// Adjustment Screens ////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////////////  
     
-  ////////// ADJUST Time Screen //////////////////////////////////  
+  ////////// Adjust Time Screen //////////////////////////////////  
   } else if (active_screen == ADJUST_TIME_SCREEN) {    
     if (time_hour_temp == 999) {
       time_hour_temp = time_now.hour(); 
@@ -457,7 +465,15 @@ void loop() {
     }    
     ////////// Adjust Time HOUR Item //////////////////////////////////
     if (active_item == ADJUST_TIME_HOUR_ITEM) {    
-     
+      
+      
+      
+// @@@@@@ return properly formatted time items from subroutine @@@@@@@      
+      
+      
+      
+      
+      
       if (new_key == my_key_pins[UP_KEY]) { // top button pressed, goto select screen
         if ((time_hour_temp + 1) < 24) {
           time_hour_temp++;        
@@ -493,6 +509,11 @@ void loop() {
         display.print(time_hour_temp);  
         display.setTextColor(BLACK);
         display.print(":");     
+
+
+// @@@@ remove logic from formatting text. return above as string? @@@@
+
+
         if (time_minute_temp < 10) {
           display.print("0");
           display.println(time_minute_temp);
@@ -583,6 +604,11 @@ void loop() {
       } else if (new_key == my_key_pins[RIGHT_KEY]) { 
         active_screen = SETTINGS_SCREEN;
         active_item = SETTINGS_TIME_ITEM;
+        
+        
+        // @@@@ make time set a function @@@@
+        
+        
         DateTime save_time (time_now.year(), time_now.month(), time_now.day(), time_hour_temp, time_minute_temp, 0);
         rtc.adjust(save_time);
         time_hour_temp = 999;
