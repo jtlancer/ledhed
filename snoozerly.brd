@@ -172,11 +172,6 @@
 <text x="63.9826" y="21.1074" size="0.762" layer="26" ratio="10" rot="MR180">PWR</text>
 <text x="7.874" y="14.732" size="0.762" layer="25" ratio="10" rot="R180">12V</text>
 <text x="7.62" y="8.128" size="0.762" layer="25" ratio="10" rot="R180">VDD</text>
-<text x="65.278" y="6.096" size="1.778" layer="1">increase drill</text>
-<text x="67.818" y="12.954" size="1.778" layer="1">increase drill</text>
-<text x="-16.002" y="12.446" size="1.778" layer="1">increase drill</text>
-<text x="-16.002" y="8.89" size="1.778" layer="1">increase drill</text>
-<text x="-17.78" y="5.588" size="1.778" layer="1">increase space</text>
 </plain>
 <libraries>
 <library name="dp_pcb">
