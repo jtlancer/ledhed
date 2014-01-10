@@ -7199,7 +7199,7 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <sheet>
 <plain>
 <text x="187.325" y="116.205" size="1.778" layer="91">jt lancer</text>
-<text x="244.475" y="116.205" size="1.778" layer="91">0.1</text>
+<text x="244.475" y="116.205" size="1.778" layer="91">B</text>
 <text x="62.23" y="251.46" size="2.032" layer="91">Real Time Clock Section</text>
 <text x="39.37" y="200.66" size="2.032" layer="91">Touch Sensor Section</text>
 <text x="52.07" y="111.76" size="2.032" layer="91">Microcontroller Section</text>
