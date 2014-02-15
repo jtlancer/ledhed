@@ -7200,15 +7200,15 @@ Various common sizes : AA, AAA, 20mm coin cell and 12mm coin cell.&lt;br&gt;
 <plain>
 <text x="187.325" y="116.205" size="1.778" layer="91">jt lancer</text>
 <text x="244.475" y="116.205" size="1.778" layer="91">B</text>
-<text x="62.23" y="251.46" size="2.032" layer="91">Real Time Clock Section</text>
-<text x="39.37" y="200.66" size="2.032" layer="91">Touch Sensor Section</text>
-<text x="52.07" y="111.76" size="2.032" layer="91">Microcontroller Section</text>
-<text x="116.84" y="142.24" size="2.032" layer="91">MCU Interface Section</text>
-<text x="179.07" y="130.81" size="2.032" layer="91">12V/2A PWM Section</text>
-<text x="224.79" y="130.81" size="2.032" layer="91">Nighlight Section</text>
-<text x="213.36" y="198.12" size="2.032" layer="91" ratio="10">LCD Backlight Section</text>
-<text x="156.21" y="198.12" size="2.032" layer="91">Display Section</text>
-<text x="162.56" y="262.89" size="2.032" layer="91">Power Section</text>
+<text x="62.23" y="251.46" size="2.032" layer="91">Real Time Clock</text>
+<text x="39.37" y="200.66" size="2.032" layer="91">Touch Sensor</text>
+<text x="52.07" y="111.76" size="2.032" layer="91">Microcontroller</text>
+<text x="116.84" y="142.24" size="2.032" layer="91">MCU Interface</text>
+<text x="179.07" y="130.81" size="2.032" layer="91">12V/2A PWM</text>
+<text x="224.79" y="130.81" size="2.032" layer="91">Nighlight</text>
+<text x="213.36" y="198.12" size="2.032" layer="91" ratio="10">LCD Backlight</text>
+<text x="156.21" y="198.12" size="2.032" layer="91">Display</text>
+<text x="162.56" y="262.89" size="2.032" layer="91">Power</text>
 <text x="212.09" y="284.48" size="1.778" layer="91">3.3V</text>
 </plain>
 <instances>
